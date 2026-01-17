@@ -1,4 +1,4 @@
-import Comment from './Comment';
+import Comment from '../molecules/Comment';
 import React from 'react';
 
 const CommentList = props => {

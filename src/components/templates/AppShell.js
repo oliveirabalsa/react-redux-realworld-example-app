@@ -1,18 +1,18 @@
-import agent from '../agent';
-import Header from './Header';
+import agent from '../../agent';
+import Header from '../organisms/Header';
 import React from 'react';
 import { connect } from 'react-redux';
-import { APP_LOAD, REDIRECT } from '../constants/actionTypes';
+import { APP_LOAD, REDIRECT } from '../../constants/actionTypes';
 import { Route, Switch } from 'react-router-dom';
-import Article from '../components/Article';
-import Editor from '../components/Editor';
-import Home from '../components/Home';
-import Login from '../components/Login';
-import Profile from '../components/Profile';
-import ProfileFavorites from '../components/ProfileFavorites';
-import Register from '../components/Register';
-import Settings from '../components/Settings';
-import { store } from '../store';
+import ArticlePage from '../pages/ArticlePage';
+import EditorPage from '../pages/EditorPage';
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import ProfilePage from '../pages/ProfilePage';
+import ProfileFavoritesPage from '../pages/ProfileFavoritesPage';
+import RegisterPage from '../pages/RegisterPage';
+import SettingsPage from '../pages/SettingsPage';
+import { store } from '../../store';
 import { push } from 'react-router-redux';
 
 const mapStateToProps = state => {
@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: REDIRECT })
 });
 
-class App extends React.Component {
+class AppShell extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.redirectTo) {
       // this.context.router.replace(nextProps.redirectTo);
@@ -56,15 +56,15 @@ class App extends React.Component {
             appName={this.props.appName}
             currentUser={this.props.currentUser} />
             <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/editor/:slug" component={Editor} />
-            <Route path="/editor" component={Editor} />
-            <Route path="/article/:id" component={Article} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/@:username/favorites" component={ProfileFavorites} />
-            <Route path="/@:username" component={Profile} />
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/editor/:slug" component={EditorPage} />
+            <Route path="/editor" component={EditorPage} />
+            <Route path="/article/:id" component={ArticlePage} />
+            <Route path="/settings" component={SettingsPage} />
+            <Route path="/@:username/favorites" component={ProfileFavoritesPage} />
+            <Route path="/@:username" component={ProfilePage} />
             </Switch>
         </div>
       );
@@ -83,4 +83,4 @@ class App extends React.Component {
 //   router: PropTypes.object.isRequired
 // };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(AppShell);

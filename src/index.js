@@ -6,13 +6,13 @@ import { store, history} from './store';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
-import App from './components/App';
+import AppShell from './components/templates/AppShell';
 
 ReactDOM.render((
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/" component={App} />
+        <Route path="/" component={AppShell} />
       </Switch>
     </ConnectedRouter>
   </Provider>

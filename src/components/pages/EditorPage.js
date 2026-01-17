@@ -1,6 +1,6 @@
-import ListErrors from './ListErrors';
+import ListErrors from '../atoms/ListErrors';
 import React from 'react';
-import agent from '../agent';
+import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
   ADD_TAG,
@@ -9,7 +9,7 @@ import {
   ARTICLE_SUBMITTED,
   EDITOR_PAGE_UNLOADED,
   UPDATE_FIELD_EDITOR
-} from '../constants/actionTypes';
+} from '../../constants/actionTypes';
 
 const mapStateToProps = state => ({
   ...state.editor
@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: UPDATE_FIELD_EDITOR, key, value })
 });
 
-class Editor extends React.Component {
+class EditorPage extends React.Component {
   constructor() {
     super();
 
@@ -175,4 +175,4 @@ class Editor extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Editor);
+export default connect(mapStateToProps, mapDispatchToProps)(EditorPage);

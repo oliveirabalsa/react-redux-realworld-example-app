@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Banner = ({ appName, token }) => {
+const HomeBanner = ({ appName, token }) => {
   if (token) {
     return null;
   }
@@ -16,4 +16,4 @@ const Banner = ({ appName, token }) => {
   );
 };
 
-export default Banner;
+export default HomeBanner;

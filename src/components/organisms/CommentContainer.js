@@ -1,4 +1,4 @@
-import CommentInput from './CommentInput';
+import CommentInput from '../molecules/CommentInput';
 import CommentList from './CommentList';
 import { Link } from 'react-router-dom';
 import React from 'react';

@@ -1,4 +1,4 @@
-import ArticleList from '../ArticleList';
+import ArticleList from './ArticleList';
 import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => ({
   onTabClick: (tab, pager, payload) => dispatch({ type: CHANGE_TAB, tab, pager, payload })
 });
 
-const MainView = props => {
+const HomeMainView = props => {
   return (
     <div className="col-md-9">
       <div className="feed-toggle">
@@ -93,4 +93,4 @@ const MainView = props => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeMainView);

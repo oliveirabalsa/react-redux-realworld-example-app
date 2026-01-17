@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import ListErrors from './ListErrors';
+import ListErrors from '../atoms/ListErrors';
 import React from 'react';
-import agent from '../agent';
+import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
   UPDATE_FIELD_AUTH,
   LOGIN,
   LOGIN_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from '../../constants/actionTypes';
 
 const mapStateToProps = state => ({ ...state.auth });
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: LOGIN_PAGE_UNLOADED })
 });
 
-class Login extends React.Component {
+class LoginPage extends React.Component {
   constructor() {
     super();
     this.changeEmail = ev => this.props.onChangeEmail(ev.target.value);
@@ -94,4 +94,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

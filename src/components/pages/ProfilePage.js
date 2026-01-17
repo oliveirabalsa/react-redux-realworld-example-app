@@ -1,14 +1,14 @@
-import ArticleList from './ArticleList';
+import ArticleList from '../organisms/ArticleList';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import agent from '../agent';
+import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
   FOLLOW_USER,
   UNFOLLOW_USER,
   PROFILE_PAGE_LOADED,
   PROFILE_PAGE_UNLOADED
-} from '../constants/actionTypes';
+} from '../../constants/actionTypes';
 
 const EditProfileSettings = props => {
   if (props.isUser) {
@@ -74,7 +74,7 @@ const mapDispatchToProps = dispatch => ({
   onUnload: () => dispatch({ type: PROFILE_PAGE_UNLOADED })
 });
 
-class Profile extends React.Component {
+class ProfilePage extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
       agent.Profile.get(this.props.match.params.username),
@@ -166,5 +166,5 @@ class Profile extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
-export { Profile, mapStateToProps };
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+export { ProfilePage, mapStateToProps };

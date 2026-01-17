@@ -1,7 +1,7 @@
-import Banner from './Banner';
-import MainView from './MainView';
+import HomeBanner from '../organisms/HomeBanner';
+import HomeMainView from '../organisms/HomeMainView';
 import React from 'react';
-import Tags from './Tags';
+import HomeTags from '../organisms/HomeTags';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({  type: HOME_PAGE_UNLOADED })
 });
 
-class Home extends React.Component {
+class HomePage extends React.Component {
   componentWillMount() {
     const tab = this.props.token ? 'feed' : 'all';
     const articlesPromise = this.props.token ?
@@ -45,18 +45,18 @@ class Home extends React.Component {
     return (
       <div className="home-page">
 
-        <Banner token={this.props.token} appName={this.props.appName} />
+        <HomeBanner token={this.props.token} appName={this.props.appName} />
 
         <div className="container page">
           <div className="row">
-            <MainView />
+            <HomeMainView />
 
             <div className="col-md-3">
               <div className="sidebar">
 
                 <p>Popular Tags</p>
 
-                <Tags
+                <HomeTags
                   tags={this.props.tags}
                   onClickTag={this.props.onClickTag} />
 
@@ -70,4 +70,4 @@ class Home extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

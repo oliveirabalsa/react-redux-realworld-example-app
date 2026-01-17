@@ -1,5 +1,5 @@
-import ArticleMeta from './ArticleMeta';
-import CommentContainer from './CommentContainer';
+import ArticleMeta from '../organisms/ArticleMeta';
+import CommentContainer from '../organisms/CommentContainer';
 import React from 'react';
 import agent from '../../agent';
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: ARTICLE_PAGE_UNLOADED })
 });
 
-class Article extends React.Component {
+class ArticlePage extends React.Component {
   componentWillMount() {
     this.props.onLoad(Promise.all([
       agent.Articles.get(this.props.match.params.id),
@@ -94,4 +94,4 @@ class Article extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

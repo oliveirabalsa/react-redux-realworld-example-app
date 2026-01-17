@@ -1,7 +1,7 @@
 import React from 'react';
 import agent from '../../agent';
 
-const Tags = props => {
+const HomeTags = props => {
   const tags = props.tags;
   if (tags) {
     return (
@@ -33,4 +33,4 @@ const Tags = props => {
   }
 };
 
-export default Tags;
+export default HomeTags;
